@@ -45,7 +45,7 @@ Aviao dequeue(Fila *f)
 
 void printFila(Fila *f)
 {
-	printf("Fila aeroporto\m");
+	printf("Fila aeroporto\n");
 	Celula *tmp = f->inicio->prox;
 	while(tmp != NULL){
 		printAviao(tmp->dado);
