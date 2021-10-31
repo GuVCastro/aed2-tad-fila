@@ -30,7 +30,7 @@ int main(void) {
 	int opcao = -1;
 
 	while (opcao != 0) {
-		printf("*****************************************\n");
+		printf("\n*****************************************\n");
 		printf("Programa Aeroporto Fila\n");
 		printf("[1] Inserir aviao\n");
 		printf("[2] Remover aviao\n");
@@ -43,24 +43,28 @@ int main(void) {
 
 		switch (opcao) {
 			case 0:
-				printf("Ate mais!\n");
+				printf("\nAte mais!\n\n");
 				break;
 			case 1:
+				system("clear");
 				printf("Nome do aviao: "); scanf("%s", a.nome);
 				printf("Id do aviao: "); scanf("%d", &a.id);
 				printf("Envergadura do aviao (m): "); scanf("%d", &a.envergadura);
 				enqueue(&fila, a);
 				break;
 			case 2:
+				system("clear");
 				dequeue(&fila);
 				break;
 			case 3:
+				system("clear");
 				printFila(&fila);
 				break;
 			case 4:
+				system("clear");
 				mostrarPrimeiro(&fila);
 				break;
-			default: printf("OPCAO INVALIDA\n");
+			default: system("clear"); printf("OPCAO INVALIDA\n");
 				break;
 		}
 	}

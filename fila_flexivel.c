@@ -3,7 +3,8 @@
 #include <string.h>
 #include "fila_flexivel.h"
 
-void newFila(Fila *f){
+void newFila(Fila *f)
+{
 	Celula *tmp = malloc(sizeof(Celula));
 	tmp->prox = NULL;
 
@@ -11,7 +12,8 @@ void newFila(Fila *f){
 	f->tam = 0;
 }
 
-void enqueue(Fila *f, Aviao dado){
+void enqueue(Fila *f, Aviao dado)
+{
 	Celula *tmp = malloc(sizeof(Celula));
 	tmp->prox = NULL;
 	tmp->dado = dado;
@@ -22,8 +24,8 @@ void enqueue(Fila *f, Aviao dado){
 	f->tam++;
 }
 
-Aviao dequeue(Fila *f){
-
+Aviao dequeue(Fila *f)
+{
 	if(f->tam == 0){
 		printf("FILA VAZIA\n");
 		Aviao a;
@@ -31,18 +33,19 @@ Aviao dequeue(Fila *f){
 		a.id = -1;
 		a.envergadura = -1;
 		return a;
-	}else{
-
+	}
+	else {
 		Celula *tmp = f->inicio;
 		f->inicio = f->inicio->prox;
 		free(tmp);
 		f->tam--;
 		return f->inicio->dado;
-	}
-	
+	}	
 }
 
-void printFila(Fila *f){
+void printFila(Fila *f)
+{
+	printf("Fila aeroporto\m");
 	Celula *tmp = f->inicio->prox;
 	while(tmp != NULL){
 		printAviao(tmp->dado);
