@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include "aviao.h"
 
 void printAviao(Aviao a)
 {
-	printf("{ id: %s, envergadura: %d }\n", a.peso, a.envergadura);
+	printf("{ nome: %s, id: %d, envergadura: %d }\n", a.nome, a.id, a.envergadura);
 }

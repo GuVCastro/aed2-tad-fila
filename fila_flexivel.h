@@ -1,14 +1,8 @@
 #include <stdio.h>
-
-typedef struct Aluno{
-	char nome[100];
-	int nota;
-}Aluno;
-
-void print_aluno(Aluno a);
+#include "aviao.h"
 
 typedef struct Celula{
-	Aluno dado;
+	Aviao dado;
 	struct Celula *prox;
 }Celula;
 
@@ -18,11 +12,12 @@ typedef struct Fila{
 	int tam;
 }Fila;
 
-void create_fila(Fila *f);
+void newFila(Fila *f);
 
-void enqueue(Fila *f, Aluno dado);
+void enqueue(Fila *f, Aviao dado);
 
-Aluno dequeue(Fila *f);
+Aviao dequeue(Fila *f);
 
-void print_fila(Fila *f);
+void printFila(Fila *f);
 
+void mostrarPrimeiro(Fila *f);

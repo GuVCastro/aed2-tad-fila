@@ -3,7 +3,7 @@
  * 
  * AUTOR: Gustavo Valadares Castro
  *
- * DESCRIÇÃO:	Programa de estacionamento utilizando os conceitos de fila
+ * DESCRIÇÃO:	Programa de aeroporto utilizando os conceitos de fila
  *
  * OBSERVAÇÕES:
  *				Repositório: https://github.com/GuVCastro/aed2-tad-pilha
@@ -17,9 +17,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "fila_linear.h"
+//#include "fila_linear.h"
 #include "fila_flexivel.h"
-#include "aviao.h"
 
 int main(void) {
 	
@@ -27,19 +26,43 @@ int main(void) {
 
 	Fila fila;
 	newFila(&fila);
-	int n = 10, opcao = -1;
+	Aviao a;
+	int opcao = -1;
 
-	/*for(int i=0; i<n; i++){
-		Aluno a;
-		sprintf(a.nome, "Aluno %d", rand()%n);
-		a.nota = rand()%100;
-		enqueue(&fila, a);
-	}*/
-
-	printFila(&fila);
-
-	while (opcao == -1) {
+	while (opcao != 0) {
+		printf("*****************************************\n");
 		printf("Programa Aeroporto Fila\n");
+		printf("[1] Inserir aviao\n");
+		printf("[2] Remover aviao\n");
+		printf("[3] Mostrar avioes na fila\n");
+		printf("[4] Mostrar primeiro aviao\n");
+		printf("[0] Sair\n");
+		printf("*****************************************\n");
+		printf("Insira uma das opcoes acima: ");
+		scanf("%d", &opcao);
+
+		switch (opcao) {
+			case 0:
+				printf("Ate mais!\n");
+				break;
+			case 1:
+				printf("Nome do aviao: "); scanf("%s", a.nome);
+				printf("Id do aviao: "); scanf("%d", &a.id);
+				printf("Envergadura do aviao (m): "); scanf("%d", &a.envergadura);
+				enqueue(&fila, a);
+				break;
+			case 2:
+				dequeue(&fila);
+				break;
+			case 3:
+				printFila(&fila);
+				break;
+			case 4:
+				mostrarPrimeiro(&fila);
+				break;
+			default: printf("OPCAO INVALIDA\n");
+				break;
+		}
 	}
 
 	return 0;

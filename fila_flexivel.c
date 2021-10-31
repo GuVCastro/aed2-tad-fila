@@ -1,9 +1,9 @@
-#include "fila_flexivel.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "fila_flexivel.h"
 
-void create_fila(Fila *f){
+void newFila(Fila *f){
 	Celula *tmp = malloc(sizeof(Celula));
 	tmp->prox = NULL;
 
@@ -11,7 +11,7 @@ void create_fila(Fila *f){
 	f->tam = 0;
 }
 
-void enqueue(Fila *f, Aluno dado){
+void enqueue(Fila *f, Aviao dado){
 	Celula *tmp = malloc(sizeof(Celula));
 	tmp->prox = NULL;
 	tmp->dado = dado;
@@ -22,13 +22,14 @@ void enqueue(Fila *f, Aluno dado){
 	f->tam++;
 }
 
-Aluno dequeue(Fila *f){
+Aviao dequeue(Fila *f){
 
 	if(f->tam == 0){
-		printf("Fila Vazia!");
-		Aluno a;
+		printf("FILA VAZIA\n");
+		Aviao a;
 		strcpy(a.nome, "-1");
-		a.nota = -1;
+		a.id = -1;
+		a.envergadura = -1;
 		return a;
 	}else{
 
@@ -41,15 +42,15 @@ Aluno dequeue(Fila *f){
 	
 }
 
-void print_aluno(Aluno a){
-	printf("{%s - %d}\n", a.nome, a.nota);
-}
-
-void print_fila(Fila *f){
+void printFila(Fila *f){
 	Celula *tmp = f->inicio->prox;
 	while(tmp != NULL){
-		print_aluno(tmp->dado);
+		printAviao(tmp->dado);
 		tmp = tmp->prox;
 	}
 }
 
+void mostrarPrimeiro(Fila *f)
+{
+	printf("foo\n");
+}
