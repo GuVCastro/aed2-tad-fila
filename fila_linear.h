@@ -1,18 +1,16 @@
 #include <stdio.h>
 #include "aviao.h"
 
-typedef struct Celula{
-	Aviao dado;
-	struct Celula *prox;
-}Celula;
+#define MAX 5
 
 typedef struct Fila{
-	Celula *inicio;
-	Celula *fim;
+	Aviao dados[MAX + 1];
+	int primeiro;
+	int ultimo;
 	int tam;
-}Fila;
+} Fila;
 
-void createFila(Fila *f);
+void newFila(Fila *f);
 
 void enqueue(Fila *f, Aviao dado);
 
@@ -20,3 +18,6 @@ Aviao dequeue(Fila *f);
 
 void printFila(Fila *f);
 
+void mostrarPrimeiro(Fila *f);
+
+void priorityEnqueue(Fila *f, Aviao dado);

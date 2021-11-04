@@ -21,3 +21,5 @@ Aviao dequeue(Fila *f);
 void printFila(Fila *f);
 
 void mostrarPrimeiro(Fila *f);
+
+void priorityEnqueue(Fila *f, Aviao dado);

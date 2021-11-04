@@ -45,15 +45,45 @@ Aviao dequeue(Fila *f)
 
 void printFila(Fila *f)
 {
-	printf("Fila aeroporto\n");
 	Celula *tmp = f->inicio->prox;
+	printf("****** Fila aeroporto ******\n");
 	while(tmp != NULL){
 		printAviao(tmp->dado);
 		tmp = tmp->prox;
 	}
+
+	printf("Aviões na fila: %d\n", f->tam);
 }
 
 void mostrarPrimeiro(Fila *f)
 {
-	printf("foo\n");
+	Celula *tmp = f->inicio->prox;
+	printf("****** Primeiro da fila ******\n");
+	printAviao(tmp->dado);
+	
+	printf("Aviões na fila: %d\n", f->tam);
+}
+
+void priorityEnqueue(Fila *f, Aviao dado)
+{
+	Celula *tmpDado = malloc(sizeof(Celula));
+	Celula *tmpPosicaoAnterior = f->inicio;
+	Celula *tmp = f->inicio->prox;
+	int flagEncontrouMenor = 0;
+
+	while (tmp != NULL) {
+		if (tmp->dado.envergadura <= dado.envergadura) {
+			flagEncontrouMenor = -1;
+			break;
+		}
+		
+		tmpPosicaoAnterior = tmpPosicaoAnterior->prox;
+		tmp = tmp->prox;
+	}
+	
+	tmpPosicaoAnterior->prox = tmpDado;
+	tmpDado->dado = dado;
+	tmpDado->prox = tmp;
+	
+	f->tam++;	
 }
