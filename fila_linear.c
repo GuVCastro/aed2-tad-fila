@@ -66,16 +66,14 @@ void priorityEnqueue(Fila *f, Aviao dados)
 {
 	int i = f->primeiro, j;
 	Aviao tmp1, tmp2;
-	int flagEncontrouMenor = 0;
 
 	if (((f->ultimo + 1) % MAX) == f->primeiro)
 		printf("AEROPORTO LOTADO\n");
 	else {
 		while (i != f->ultimo) {
-			if (f->dados[i].envergadura <= dados.envergadura) {
-				flagEncontrouMenor = -1;
+			if (f->dados[i].envergadura <= dados.envergadura)
 				break;
-			}
+			
 			i = (i + 1) % MAX;
 		}
 	

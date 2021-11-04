@@ -69,13 +69,10 @@ void priorityEnqueue(Fila *f, Aviao dado)
 	Celula *tmpDado = malloc(sizeof(Celula));
 	Celula *tmpPosicaoAnterior = f->inicio;
 	Celula *tmp = f->inicio->prox;
-	int flagEncontrouMenor = 0;
 
 	while (tmp != NULL) {
-		if (tmp->dado.envergadura <= dado.envergadura) {
-			flagEncontrouMenor = -1;
+		if (tmp->dado.envergadura <= dado.envergadura) 
 			break;
-		}
 		
 		tmpPosicaoAnterior = tmpPosicaoAnterior->prox;
 		tmp = tmp->prox;
