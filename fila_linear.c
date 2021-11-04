@@ -17,11 +17,6 @@ void enqueue(Fila *f, Aviao dados)
 		f->dados[f->ultimo] = dados;
 		f->ultimo = (f->ultimo + 1) % MAX;
 		f->tam++;
-	
-		printf("\nultimo: %d\n", f->ultimo);
-		printf("primeiro: %d\n", f->primeiro);
-		printf("MAX: %d\n", MAX);
-		printf("(ultimo + 1) mod MAX: %d\n", ((f->ultimo + 1) % MAX));
 	}
 }
 
